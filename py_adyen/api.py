@@ -30,8 +30,7 @@ class Api(object):
 
     @property
     def payment_service(self):
-        # TODO: set test/production environment
-        wsdl = 'https://pal-test.adyen.com/pal/Payment.wsdl'
+        wsdl = 'https://pal-{}.adyen.com/pal/Payment.wsdl'.format(adyen_settings.ENVIRONMENT)
         username = adyen_settings.API_USERNAME
         password = adyen_settings.API_PASSWORD
         client = Client(wsdl, username=username, password=password)
@@ -39,8 +38,7 @@ class Api(object):
 
     @property
     def recurring_service(self):
-        # TODO: set test/production environment
-        wsdl = 'https://pal-test.adyen.com/pal/Recurring.wsdl'
+        wsdl = 'https://pal-{}.adyen.com/pal/Recurring.wsdl'.format(adyen_settings.ENVIRONMENT)
         username = adyen_settings.API_USERNAME
         password = adyen_settings.API_PASSWORD
         client = Client(wsdl, username=username, password=password)
